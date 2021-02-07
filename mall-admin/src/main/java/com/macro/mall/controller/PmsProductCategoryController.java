@@ -10,13 +10,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /**
- * 商品分类管理Controller
+ * 商品分类模块Controller
  * Created by macro on 2018/4/26.
  */
 @Controller
@@ -29,7 +30,8 @@ public class PmsProductCategoryController {
     @ApiOperation("添加产品分类")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult create(@Validated @RequestBody PmsProductCategoryParam productCategoryParam) {
+    public CommonResult create(@Validated @RequestBody PmsProductCategoryParam productCategoryParam,
+                         BindingResult result) {
         int count = productCategoryService.create(productCategoryParam);
         if (count > 0) {
             return CommonResult.success(count);
@@ -43,7 +45,8 @@ public class PmsProductCategoryController {
     @ResponseBody
     public CommonResult update(@PathVariable Long id,
                          @Validated
-                         @RequestBody PmsProductCategoryParam productCategoryParam) {
+                         @RequestBody PmsProductCategoryParam productCategoryParam,
+                         BindingResult result) {
         int count = productCategoryService.update(id, productCategoryParam);
         if (count > 0) {
             return CommonResult.success(count);

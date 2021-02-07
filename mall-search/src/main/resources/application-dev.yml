@@ -16,14 +16,4 @@ spring:
     elasticsearch:
       repositories:
         enabled: true
-  elasticsearch:
-    rest:
-      uris: localhost:9200
-
-logging:
-  level:
-    root: info
-    com.macro.mall: debug
-
-logstash:
-  host: localhost
+      cluster-nodes: 127.0.0.1:9300

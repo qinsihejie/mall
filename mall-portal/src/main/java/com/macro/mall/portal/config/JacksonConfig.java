@@ -10,7 +10,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 
 /**
- * Jackson相关配置类
+ * Jackson配置类
  * json不返回null的字段
  * Created by macro on 2018/8/2.
  */

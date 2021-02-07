@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 商品SKU库存管理Controller
+ * sku库存Controller
  * Created by macro on 2018/4/27.
  */
 @Controller

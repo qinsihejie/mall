@@ -1,7 +1,6 @@
 package com.macro.mall.portal.service;
 
 import com.macro.mall.portal.domain.MemberReadHistory;
-import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -21,12 +20,7 @@ public interface MemberReadHistoryService {
     int delete(List<String> ids);
 
     /**
-     * 分页获取用户浏览历史记录
+     * 获取用户浏览历史记录
      */
-    Page<MemberReadHistory> list(Integer pageNum, Integer pageSize);
-
-    /**
-     * 清空浏览记录
-     */
-    void clear();
+    List<MemberReadHistory> list(Long memberId);
 }

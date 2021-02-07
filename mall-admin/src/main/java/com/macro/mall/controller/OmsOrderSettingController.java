@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 订单设置管理Controller
+ * 订单设置Controller
  * Created by macro on 2018/10/16.
  */
 @Controller

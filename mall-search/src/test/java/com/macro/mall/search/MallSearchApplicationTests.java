@@ -2,12 +2,14 @@ package com.macro.mall.search;
 
 import com.macro.mall.search.dao.EsProductDao;
 import com.macro.mall.search.domain.EsProduct;
+import com.macro.mall.search.repository.EsProductRepository;
+import org.elasticsearch.action.search.SearchResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
-import org.springframework.data.elasticsearch.core.IndexOperations;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.ResultsExtractor;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -19,7 +21,7 @@ public class MallSearchApplicationTests {
     @Autowired
     private EsProductDao productDao;
     @Autowired
-    private ElasticsearchRestTemplate elasticsearchTemplate;
+    private ElasticsearchTemplate elasticsearchTemplate;
     @Test
     public void contextLoads() {
     }
@@ -30,9 +32,8 @@ public class MallSearchApplicationTests {
     }
     @Test
     public void testEsProductMapping(){
-        IndexOperations indexOperations = elasticsearchTemplate.indexOps(EsProduct.class);
-        indexOperations.putMapping(indexOperations.createMapping(EsProduct.class));
-        Map mapping = indexOperations.getMapping();
+        elasticsearchTemplate.putMapping(EsProduct.class);
+        Map mapping = elasticsearchTemplate.getMapping(EsProduct.class);
         System.out.println(mapping);
     }
 

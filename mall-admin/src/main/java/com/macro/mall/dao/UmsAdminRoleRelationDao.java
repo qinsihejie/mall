@@ -1,10 +1,10 @@
 package com.macro.mall.dao;
 
 import com.macro.mall.model.UmsAdminRoleRelation;
+import com.macro.mall.model.UmsPermission;
 import com.macro.mall.model.UmsResource;
 import com.macro.mall.model.UmsRole;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -12,7 +12,6 @@ import java.util.List;
  * 自定义后台用户与角色管理Dao
  * Created by macro on 2018/10/8.
  */
-@Repository
 public interface UmsAdminRoleRelationDao {
     /**
      * 批量插入用户角色关系
@@ -23,6 +22,16 @@ public interface UmsAdminRoleRelationDao {
      * 获取用于所有角色
      */
     List<UmsRole> getRoleList(@Param("adminId") Long adminId);
+
+    /**
+     * 获取用户所有角色权限
+     */
+    List<UmsPermission> getRolePermissionList(@Param("adminId") Long adminId);
+
+    /**
+     * 获取用户所有权限(包括+-权限)
+     */
+    List<UmsPermission> getPermissionList(@Param("adminId") Long adminId);
 
     /**
      * 获取用户所有可访问资源

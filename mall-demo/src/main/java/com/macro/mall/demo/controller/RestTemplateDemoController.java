@@ -18,7 +18,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +29,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/template")
 public class RestTemplateDemoController {
-    @Resource
+    @Autowired
     private RestTemplate restTemplate;
     @Value("${host.mall.admin}")
     private String HOST_MALL_ADMIN;
